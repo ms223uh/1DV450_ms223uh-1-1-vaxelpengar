@@ -59,9 +59,9 @@ namespace Lab1
                 {
                     try
                     {
-                Console.Write("Ange erhållet belopp: ");
-                pay = int.Parse(Console.ReadLine());
-                break;
+                        Console.Write("Ange erhållet belopp: ");
+                        pay = int.Parse(Console.ReadLine());
+                        break;
                     }
 
                     catch
@@ -73,13 +73,13 @@ namespace Lab1
                 }
 
 
-                    if (pay < total)
-                    {
-                        Console.BackgroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\nErhållet belopp är för litet. Köpet kunde inte genomföras.");
-                        Console.ResetColor();
-                        return; 
-                    }
+                if (pay < total)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nErhållet belopp är för litet. Köpet kunde inte genomföras.");
+                    Console.ResetColor();
+                    return; 
+                }
                
 
 
@@ -104,27 +104,51 @@ namespace Lab1
                     Console.WriteLine("------------------");
 
 
+                    if (subtotal == pay)
+                    {
+                        Console.WriteLine("Tack för köpet, välkommen åter!");
+                        return; 
+                    }
+
+
                     // Sedelräknare
 
-                    counter = moneyback / 500;
-                    moneyback = moneyback % 500;
-                    Console.WriteLine("500-lappar    :{0} ", counter);
+                    if (moneyback >= 500)
+                    {
+                        counter = moneyback / 500;
+                        moneyback = moneyback % 500;
+                        Console.WriteLine("500-lappar    :{0} ", counter);
+                    }
 
-                    counter = moneyback / 100;
-                    moneyback = moneyback % 100;
-                    Console.WriteLine("100-lappar    :{0} ", counter);
+                    if (moneyback >= 100)
+                    {
+                        counter = moneyback / 100;
+                        moneyback = moneyback % 100;
+                        Console.WriteLine("100-lappar    :{0} ", counter);
+                    }
 
-                    counter = moneyback / 20;
-                    moneyback = moneyback % 20;
-                    Console.WriteLine("20-lappar     :{0} ", counter);
+                    if (moneyback >= 20)
+                    {
+                        counter = moneyback / 20;
+                        moneyback = moneyback % 20;
+                        Console.WriteLine("20-lappar     :{0} ", counter);
+                    }
 
-                    counter = moneyback / 5;
-                    moneyback = moneyback % 5;
-                    Console.WriteLine("5-kronor      :{0} ", counter);
+                    if (moneyback >= 5)
+                    {
+                        counter = moneyback / 5;
+                        moneyback = moneyback % 5;
+                        Console.WriteLine("5-kronor      :{0} ", counter);
+                    }
 
-                    counter = moneyback / 1;
-                    moneyback = moneyback % 1;
-                    Console.WriteLine("1-kronor      :{0} ", counter);
+                    if (moneyback >= 1)
+                    {
+                        counter = moneyback / 1;
+                        moneyback = moneyback % 1;
+                        Console.WriteLine("1-kronor      :{0} ", counter);
+                    }
+
+
                 }
 
                 }
